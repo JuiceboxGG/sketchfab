@@ -112,6 +112,15 @@
 					window.console.log('Camera moved to '+sideViews[lastSide]);
 				}
 			});
+			api.setPostProcessing({
+				enable: false,
+				taaEnable: true,
+				grainEnable: false,
+				bloomEnable: false,
+				dofEnable: false
+			}, function() {
+			    window.console.log('Post-processing filters set');
+			});
 		}
 	}
 	
@@ -152,9 +161,11 @@
 				    window.console.log('Background changed');
 				});
 				api.setPostProcessing({
-				    enable: false,
-				    taaEnable: false,
-					bloomEnable : false,
+					enable: false,
+					taaEnable: true,
+					grainEnable: false,
+					bloomEnable: false,
+					dofEnable: false
 				}, function() {
 				    window.console.log('Post-processing filters set');
 				});
