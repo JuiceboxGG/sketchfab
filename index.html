@@ -121,6 +121,9 @@
 			}, function() {
 			    window.console.log('Post-processing filters set');
 			});
+			api.setBackground({color: [71, 71, 71]}, function() {
+			    window.console.log('Background changed');
+			});
 		}
 	}
 	
@@ -157,7 +160,7 @@
 					});
 					setView();
 				});
-				api.setBackground({color: [0, 71, 71]}, function() {
+				api.setBackground({color: [71, 71, 71]}, function() {
 				    window.console.log('Background changed');
 				});
 				api.setPostProcessing({
