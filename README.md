@@ -5,7 +5,7 @@ Auto saves the previous UID and zoom values.
 - Find a model on [Sketchfab](https://sketchfab.com/3d-models/).
 - Copy the last part of its link (UID):
   - `sketchfab.com/3d-models/bob-7w7pAfrCfjovwykkEeRFLGw5SXS` -> `7w7pAfrCfjovwykkEeRFLGw5SXS`
-- Open [this app](https://k3rielit.github.io/sketchfab/).
+- Open [this app](https://JuiceboxGG.github.io/sketchfab/).
 - Paste that UID into the textbox at the top.
 - Press Reload next to it.
 - Change standard views by clicking on the buttons.
