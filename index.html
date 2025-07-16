@@ -93,10 +93,10 @@
 		lastSide = side ?? lastSide;
 		lastZoom = zoom ?? lastZoom;
 		const sideViews = {
-			'left': [-lastZoom,-lastZoom/2,0],
+			'left': [lastZoom/2,-lastZoom/2,0],
 			'right': [-lastZoom/2,-lastZoom,0],
-			'front': [-lastZoom,-lastZoom,0],
-			'rear': [lastZoom,lastZoom,lastZoom,0],
+			'front': [-lastZoom,lastZoom/2,0],
+			'rear': [lastZoom,lastZoom,0],
 			'top': [0,0,lastZoom],
 			'bottom': [0,0,-lastZoom],
 		}
