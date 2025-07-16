@@ -85,16 +85,16 @@
     var client = new Sketchfab( iframe );
 	let api;
 	
-	let lastSide = 'left';
+	let lastSide = 'right';
 	let lastZoom = storedLZ!=NaN && storedLZ ? storedLZ : 16000;
 	document.querySelector('#zoom-value').value = lastZoom;
-	
+	    
 	function setView(side, zoom, fov) {
 		lastSide = side ?? lastSide;
 		lastZoom = zoom ?? lastZoom;
 		const sideViews = {
 			'left': [lastZoom,0,0],
-			'right': [-lastZoom,0,0],
+			'right': [-lastZoom/2,-lastZoom,0],
 			'front': [0,-lastZoom,0],
 			'rear': [0,lastZoom,0],
 			'top': [0,0,lastZoom],
@@ -127,7 +127,7 @@
 		localStorage.clear();
 		document.querySelector('#model-uid').value = '7w7pAfrCfjovwykkEeRFLGw5SXS';
 		document.querySelector('#zoom-value').value = 16000;
-		lastSide = 'left';
+		lastSide = 'right';
 		lastZoom = 16000;
 		init();
 	}
@@ -147,6 +147,14 @@
 						}
 					});
 					setView();
+				});
+				api.setBackground({color: [71, 71, 71]});
+				api.setPostProcessing({
+				    enable: false,
+				    taaEnable: true,
+					bloomEnable : false,
+				}, function() {
+				    window.console.log('Post-processing filters set');
 				});
 			},
 			error: function onError() {
