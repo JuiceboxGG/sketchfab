@@ -119,7 +119,8 @@
 				bloomEnable: false,
 				dofEnable: false,
 				sharpenEnable: false,
-				distortion: [0, 0]  
+				distortion: [0, 0],
+				taaTransparent:true
 			}, function() {
 			    window.console.log('Post-processing filters set');
 			});
@@ -170,7 +171,8 @@
 					taaEnable: false,
 					grainEnable: false,
 					bloomEnable: false,
-					dofEnable: false
+					dofEnable: false,
+					taaTransparent:true
 				}, function() {
 				    window.console.log('Post-processing filters set');
 				});
