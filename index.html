@@ -88,13 +88,6 @@
 	let lastSide = 'right';
 	let lastZoom = storedLZ!=NaN && storedLZ ? storedLZ : 16000;
 	document.querySelector('#zoom-value').value = lastZoom;
-
-	if(api)
-	{
-					api.setBackground({color: [71, 71, 71]}, function() {
-			    window.console.log('Background changed');
-			});
-	}
 	    
 	function setView(side, zoom, fov) {
 		lastSide = side ?? lastSide;
@@ -130,7 +123,7 @@
 			}, function() {
 			    window.console.log('Post-processing filters set');
 			});
-			api.setBackground({color: [71, 71, 71]}, function() {
+			api.setBackground({color: [0, 0, 0]}, function() {
 			    window.console.log('Background changed');
 			});
 		}
@@ -169,7 +162,7 @@
 					});
 					setView();
 				});
-				api.setBackground({color: [71, 71, 71]}, function() {
+				api.setBackground({color: [0, 0, 0]}, function() {
 				    window.console.log('Background changed');
 				});
 				api.setPostProcessing({
