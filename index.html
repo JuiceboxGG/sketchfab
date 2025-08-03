@@ -92,14 +92,18 @@
 	function setView(side, zoom, fov) {
 		lastSide = side ?? lastSide;
 		lastZoom = zoom ?? lastZoom;
+		// Normalize factor for isometric views (x=y=z), scaled by lastZoom
+		const iso = lastZoom * Math.sqrt(1/3); // ≈ 0.577 * zoom
+		
 		const sideViews = {
-			'left': [lastZoom/2,-lastZoom,0],
-			'right': [-lastZoom/2,-lastZoom,0],
-			'front': [lastZoom,-lastZoom/2,0],
-			'rear': [-lastZoom,lastZoom/2,0],
-			'top': [0,0,lastZoom],
-			'bottom': [0,0,-lastZoom],
-		}
+			'left':  [ iso,  iso,  0],   // front-left isometric
+			'right': [-iso,  iso,  0],   // front-right isometric
+			'front': [ iso, -iso,  0],   // back-left isometric
+			'rear':  [-iso, -iso,  0],   // back-right isometric
+			'top':   [ 0,    0,    lastZoom],  // unchanged
+			'bottom':[ 0,    0,   -lastZoom],  // unchanged
+		};
+		
 		localStorage.setItem('last-zoom',lastZoom);
 		if(api) {
 			api.setFov(fov ?? 0.01, function(err, angle) {
